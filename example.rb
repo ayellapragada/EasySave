@@ -1,5 +1,4 @@
-require_relative 'lib/sql_object'
-require_relative 'test.rb'
+require_relative 'lib/easy_save.rb'
 
 DBConnection.reset
 

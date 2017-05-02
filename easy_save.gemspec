@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Akshith Yellapragada"]
   spec.email         = ["ayellapragada@gmail.com"]
 
-  spec.summary       = "Easy to use ORM that abstracts away database queries."
+  spec.summary       = "Easy to use lightweight ORM that abstracts away complex database queries."
   spec.homepage      = "https://github.com/ayellapragada/EasySave"
   spec.license       = "MIT"
 
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "activesupport"
 end
