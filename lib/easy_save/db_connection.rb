@@ -1,12 +1,14 @@
 require 'sqlite3'
+require 'byebug'
 
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 # https://tomafro.net/2010/01/tip-relative-paths-with-file-expand-path
-ROOT_FOLDER = File.join(File.dirname(__FILE__) )
+ROOT_FOLDER = Dir.pwd
 USERS_SQL_FILE = File.join(ROOT_FOLDER, 'example.sql')
 USERS_DB_FILE = File.join(ROOT_FOLDER, 'example.db')
 
 class DBConnection
+
   def self.open(db_file_name)
     @db = SQLite3::Database.new(db_file_name)
     @db.results_as_hash = true
@@ -27,7 +29,6 @@ class DBConnection
 
   def self.instance
     reset if @db.nil?
-
     @db
   end
 
