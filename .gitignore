@@ -1,0 +1,16 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+.byebug_history
+.DS_Store
+.node_modules
+node_modules 
+
+# rspec failure tracking
+.rspec_status
