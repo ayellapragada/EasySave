@@ -1,8 +1,7 @@
 # EasySave
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/easy_save`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+EasySave is a lightweight ORM written in Ruby that abstracts away the
+complexities of working with SQL databases. 
 
 ## Installation
 
@@ -22,20 +21,55 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Setting up for your own usage: 
 
-## Development
+Place your sql file in the root of the project directory, and in
+`lib/easy_save/db_connection.rb` change `'YOURFILENAMEHERE.sql'` to your sql file's
+name.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+#lib/easy_save/db_connection.rb
+USERS_SQL_FILE = File.join(ROOT_FOLDER, 'YOURFILENAMEHERE.sql')
+USERS_DB_FILE = File.join(ROOT_FOLDER, 'YOURFILENAMEHERE.db')
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
 
-## Contributing
+Once that's done, in each model that is involved in the database, require
+'easy_gem', subclass it from SQLObject and `finalize!` it to create the methods.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/easy_save. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+```ruby
+require 'easy_gem'
+
+class User < SQLObject
+
+self.finalize!
+end
+```
+
+### Setting up demo: 
+
+A demo database has been included as well, in the example folder.
+
+Copy and paste `example.rb` and `example.sql` to the same folder.
+
+Once that's done, run Pry in that same folder, and `load 'example.rb'`.
 
 
-## License
+At that point `Users`, `Comments`, `Photos`, and their respective associations can all
+be explored.
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Example Methods
+
+* `#find`
+* `#first`
+* `#insert`
+* `#update`
+* `#save`
+
+Also includes associations
+* `::has_many`
+* `::has_one`
+* `::belongs_to`
+
 

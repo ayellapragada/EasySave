@@ -1,4 +1,4 @@
-require_relative 'lib/easy_save.rb'
+require 'easy_save'
 
 DBConnection.reset
 
@@ -22,4 +22,20 @@ class Comment < SQLObject
 
   self.finalize!
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
