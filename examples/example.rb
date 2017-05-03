@@ -1,4 +1,4 @@
-require 'easy_save'
+require_relative '../lib/easy_save'
 
 DBConnection.reset
 
