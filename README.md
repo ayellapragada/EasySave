@@ -51,8 +51,6 @@ end
 A demo database has been included as well, in the example folder.
 
 Run Pry or IRB in the examples folder, and `load 'example.rb'`.
-The first time loading the example database, you may receive an error about
-database not found which is ignorable.
 
 At that point `Users`, `Comments`, `Photos`, and their respective associations can all
 be explored.

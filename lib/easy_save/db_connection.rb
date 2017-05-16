@@ -1,5 +1,4 @@
 require 'sqlite3'
-require 'byebug'
 
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 # https://tomafro.net/2010/01/tip-relative-paths-with-file-expand-path
@@ -18,10 +17,9 @@ class DBConnection
   end
 
   def self.reset
-    commands = [
-      "rm '#{USERS_DB_FILE}'",
-      "cat '#{USERS_SQL_FILE}' | sqlite3 '#{USERS_DB_FILE}'"
-    ]
+    commands = []
+    commands << "rm '#{USERS_DB_FILE}'" if File.exist?(USERS_DB_FILE)
+    commands << "cat '#{USERS_SQL_FILE}' | sqlite3 '#{USERS_DB_FILE}'"
 
     commands.each { |command| `#{command}` }
     DBConnection.open(USERS_DB_FILE)
