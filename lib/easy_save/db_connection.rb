@@ -3,8 +3,8 @@ require 'sqlite3'
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 # https://tomafro.net/2010/01/tip-relative-paths-with-file-expand-path
 ROOT_FOLDER = Dir.pwd
-USERS_SQL_FILE = File.join(ROOT_FOLDER, 'example.sql')
-USERS_DB_FILE = File.join(ROOT_FOLDER, 'example.db')
+USERS_SQL_FILE = File.join(ROOT_FOLDER, 'schema.sql')
+USERS_DB_FILE = File.join(ROOT_FOLDER, 'schema.db')
 
 class DBConnection
 

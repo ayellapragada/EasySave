@@ -1,6 +1,7 @@
 require_relative 'db_connection'
 require_relative 'associatable'
 require_relative 'searchable'
+require 'byebug'
 
 require 'active_support/inflector'
 

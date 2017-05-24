@@ -23,16 +23,9 @@ Or install it yourself as:
 
 ### Setting up for your own usage: 
 
-Place your sql file in the root of the project directory, and in
-`lib/easy_save/db_connection.rb` change `'example.sql'` to your sql file's
-name.
+Place your sql file in the root of the project directory, and name it
+`schema.sql`.
 
-```ruby
-#lib/easy_save/db_connection.rb
-USERS_SQL_FILE = File.join(ROOT_FOLDER, 'example.sql')
-USERS_DB_FILE = File.join(ROOT_FOLDER, 'example.db')
-
-```
 
 Once that's done, in each model that is involved in the database, require
 'easy_gem', subclass it from SQLObject and `finalize!` it to create the methods.
